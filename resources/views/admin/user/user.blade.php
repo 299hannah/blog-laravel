@@ -10,10 +10,9 @@
 
       <!-- /.card-header -->
       <!-- form start -->
-<div role="form" action="{{ route('post.store') }}" method="post">
 
 
-      {{-- <form > --}}
+      {{-- <form> --}}
         <div class="col-md-6">
 
           <div class="card-header">
@@ -56,56 +55,56 @@
           </div>
         </div>
 
-    </div>
-
-    <!-- /.card-body -->
-    {{--
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            <h3>post body</h3>
-          </div>
-        </div>
       </div>
-      <!-- /.container-fluid -->
-    </section>
-    --}}
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="container">
-          <div class="col-md-12">
-            <div class="card card-outline card-info">
-              <h3>post body</h3>
 
-              <div class="card-header">
-                <h3 class="card-title">Summernote</h3>
+        <!-- /.card-body -->
+{{--         
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <h3>post body</h3>
               </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <textarea id="summernote" name="body">
-                  Place <em>some</em> <u>text</u> <strong>here</strong>
-                </textarea>
-              </div>
-
             </div>
           </div>
+          <!-- /.container-fluid -->
+        </section>
+        --}}
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="container">
+              <div class="col-md-12">
+                <div class="card card-outline card-info">
+                  <h3>post body</h3>
+
+                  <div class="card-header">
+                    <h3 class="card-title">Summernote</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <textarea id="summernote" name="body">
+                  Place <em>some</em> <u>text</u> <strong>here</strong>
+                </textarea>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <!-- /.col-->
+          </div>
+          <!-- ./row -->
+
+          <!-- ./row -->
+        </section>
+
+        <div class="card-footer col-lg-12">
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-        <!-- /.col-->
-      </div>
-      <!-- ./row -->
 
-      <!-- ./row -->
-    </section>
+        {{--
+      </form> --}}
 
-    <div class="card-footer col-lg-12">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-
-
-    {{-- </form> --}}
-  </div>
 
     <script>
       $(function () {

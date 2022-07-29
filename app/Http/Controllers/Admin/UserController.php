@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TagController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        return view('admin.tag.show');
-
+        return  view('admin.user.show');
     }
 
     /**
@@ -25,7 +24,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('admin.tag.tag');
+       return view('admin.user.user');
     }
 
     /**
@@ -47,7 +46,7 @@ class TagController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
