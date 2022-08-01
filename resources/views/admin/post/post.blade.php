@@ -10,105 +10,124 @@
 
       <!-- /.card-header -->
       <!-- form start -->
-<div role="form" action="{{ route('post.store') }}" method="post">
+      {{-- <div role="form" action="{{ route('post.store') }}" method="post"> --}}
 
 
-      {{-- <form > --}}
-        <div class="col-md-6">
-
-          <div class="card-header">
-            <h3 class="card-title">Titles</h3>
-          </div>
-          <div class="card-body ">
-
-            <div class="form-group">
-              <label for="title">Post title</label>
-              <input type="text" class="form-control" name="title" id="title" placeholder="Write your Title">
-            </div>
-            <div class="form-group">
-              <label for="subtitle">Post Sub-title</label>
-              <input type="text" class="form-control" name="subtitle" id="subtitle" placeholder="Write your subtitle">
-            </div>
-            <div class="form-group">
-              <label for="slug">Post Slug</label>
-              <input type="text" class="form-control" name="slug" id="slug" placeholder="Write your slug">
-            </div>
-
-          </div>
-        </div>
-        <div class="col-md-6">
-
-          <div class="form-group">
-            <label for="exampleInputFile">File input</label>
-            <div class="input-group">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="image" name="image">
-                <label class="custom-file-label" for="image">Choose file</label>
-              </div>
-              {{-- <div class="input-group-append">
-                <span class="input-group-text">Upload</span>
-              </div> --}}
-            </div>
-          </div><br>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="status">
-            <label class="form-check-label" for="exampleCheck1">Publish</label>
-          </div>
-        </div>
-
-    </div>
-
-    <!-- /.card-body -->
-    {{--
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            <h3>post body</h3>
-          </div>
-        </div>
-      </div>
-      <!-- /.container-fluid -->
-    </section>
-    --}}
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="container">
-          <div class="col-md-12">
-            <div class="card card-outline card-info">
-              <h3>post body</h3>
+        <form role="form" action="{{ route('post.store') }}" method="post" class="col-lg-12">
+            @csrf
+            {{-- {{ csrf_token() }} --}}
+            <div class="col-md-6">
 
               <div class="card-header">
-                <h3 class="card-title">Summernote</h3>
+                <h3 class="card-title">Titles</h3>
               </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <textarea id="summernote" name="body">
-                  Place <em>some</em> <u>text</u> <strong>here</strong>
-                </textarea>
-              </div>
+              @if (count($errors) > 0)
+              @foreach ($errors->all() as $error)
+              <p class="alert alert-danger">{{ $error }}</p>
+                
+              @endforeach
+                
+              @endif
 
+              <div class="card-body ">
+
+                <div class="form-group">
+                  <label for="title">Post title</label>
+                  <input type="text" class="form-control" name="title" id="title" placeholder="Write your Title">
+                </div>
+                <div class="form-group">
+                  <label for="subtitle">Post Sub-title</label>
+                  <input type="text" class="form-control" name="subtitle" id="subtitle"
+                    placeholder="Write your subtitle">
+                </div>
+                <div class="form-group">
+                  <label for="slug">Post Slug</label>
+                  <input type="text" class="form-control" name="slug" id="slug" placeholder="Write your slug">
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-6">
+
+              <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="image" name="image">
+                    <label class="custom-file-label" for="image">Choose file</label>
+                  </div>
+                  {{-- <div class="input-group-append">
+                    <span class="input-group-text">Upload</span>
+                  </div> --}}
+                </div>
+              </div><br>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="status">
+                <label class="form-check-label" for="exampleCheck1">Publish</label>
+              </div>
+            </div>
+
+            {{--
+          </div> --}}
+
+          <!-- /.card-body -->
+          {{--
+          <section class="content-header">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3>post body</h3>
+                </div>
+              </div>
+            </div>
+            <!-- /.container-fluid -->
+          </section>
+          --}}
+          <!-- Main content -->
+
+
+
+
+      <section class="content">
+        <div class="row">
+          <div class="container">
+            <div class="col-md-12">
+              <div class="card card-outline card-info">
+                <h3>post body</h3>
+
+                <div class="card-header">
+                  <h3 class="card-title">Summernote</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <textarea id="summernote" name="body">
+                  {{-- Place <em>some</em> <u>text</u> <strong>here</strong> --}}
+
+                </textarea>
+                </div>
+
+              </div>
             </div>
           </div>
+          <!-- /.col-->
         </div>
-        <!-- /.col-->
+        <!-- ./row -->
+
+        <!-- ./row -->
+      </section>
+
+      <div class="card-footer col-lg-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
       </div>
-      <!-- ./row -->
 
-      <!-- ./row -->
-    </section>
 
-    <div class="card-footer col-lg-12">
-      <button type="submit" class="btn btn-primary">Submit</button>
+      
+      </form>
     </div>
-
-
-    {{-- </form> --}}
   </div>
-
-    <script>
-      $(function () {
+</div>
+<script>
+  $(function () {
       // Summernote
       $("#summernote").summernote();
 
@@ -118,5 +137,8 @@
         theme: "monokai",
       });
     });
-    </script>
-    @endsection
+
+    
+</script>
+
+@endsection
