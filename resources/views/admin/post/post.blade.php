@@ -15,19 +15,14 @@
 
         <form role="form" action="{{ route('post.store') }}" method="post" class="col-lg-12">
             @csrf
-            {{-- {{ csrf_token() }} --}}
+            {{-- {{ csrf_field() }} --}}
             <div class="col-md-6">
 
               <div class="card-header">
                 <h3 class="card-title">Titles</h3>
               </div>
-              @if (count($errors) > 0)
-              @foreach ($errors->all() as $error)
-              <p class="alert alert-danger">{{ $error }}</p>
-                
-              @endforeach
-                
-              @endif
+              @include('inc.messages')
+
 
               <div class="card-body ">
 

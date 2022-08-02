@@ -56,6 +56,7 @@
 <script src="{{ asset('admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('admin/dist/js/adminlte.js') }}"></script>
+
 <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
 <!-- CodeMirror -->
 {{-- <script src="{{ asset('admin/plugins/codemirror/codemirror.js') }}"></script> --}}
@@ -63,7 +64,8 @@
 <script src="{{ asset('admin/plugins/codemirror/mode/xml/xml.js') }}"></script>
 <script src="{{ asset('admin/plugins/codemirror/mode/htmlmixed/htmlmixed.js') }}"></script> --}}
 
-
+@section('headsection')
+@show
 
   
 

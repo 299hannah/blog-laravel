@@ -1,5 +1,26 @@
 @extends('admin.layout.app')
 
+@section('headsection')
+<link rel="stylesheet" href="{{ asset('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ asset('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}"> --}}
+{{-- <link rel="stylesheet" href="{{ asset('') }}"> --}}
+
+<script src="{{ asset('admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+{{-- <script src="{{ asset('admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script> --}}
+<script>
+
+  table = $('#example').DataTable( {
+    "paging": true,
+      "ordering": true,
+    "responsive": true,
+       "lengthChange": false, 
+       "autoWidth": false
+} );
+</script>
+@endsection
 @section('main-content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -37,8 +58,49 @@
           </div>
         </div>
         <div class="card-body">
-          Start creating your amazing application!
-        </div>
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">DataTable with default features</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>S.Name</th>
+                  <th>Tag Name</th>
+                  <th>Slug</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+
+                </tr>
+                </thead>
+                <tbody>
+           
+                <tr>
+                  <td>Trident</td>
+                  <td>-</td>
+                  <td>Win 95+</td>
+                  <td>5.5</td>
+                  <td>A</td>
+                </tr>
+         
+         
+                </tbody>
+                <tfoot>
+             
+                  <tr>
+                    <th>S.Name</th>
+                    <th>Tag Name</th>
+                    <th>Slug</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>        </div>
         <!-- /.card-body -->
         <div class="card-footer">
           Footer
