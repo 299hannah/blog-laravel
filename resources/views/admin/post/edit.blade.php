@@ -13,9 +13,12 @@
       {{-- <div role="form" action="{{ route('post.store') }}" method="post"> --}}
 
 
-        <form role="form" action="{{ route('post.store') }}" method="post" class="col-lg-12">
+        <form role="form" action="{{ route('post.update',$post->id) }}" method="post" class="col-lg-12">
             @csrf
             {{-- {{ csrf_field() }} --}}
+            {{-- 'PUT or PATCH are same' --}}
+            {{ method_field('PUT') }}
+
             <div class="col-md-6">
 
               <div class="card-header">
@@ -28,16 +31,16 @@
 
                 <div class="form-group">
                   <label for="title">Post title</label>
-                  <input type="text" class="form-control" name="title" id="title" placeholder="Write your Title">
+                  <input type="text" class="form-control" name="title" id="title" placeholder="Write your Title"value="{{ $post->title }}">
                 </div>
                 <div class="form-group">
                   <label for="subtitle">Post Sub-title</label>
                   <input type="text" class="form-control" name="subtitle" id="subtitle"
-                    placeholder="Write your subtitle">
+                    placeholder="Write your subtitle" value="{{ $post->subtitle }}">
                 </div>
                 <div class="form-group">
                   <label for="slug">Post Slug</label>
-                  <input type="text" class="form-control" name="slug" id="slug" placeholder="Write your slug">
+                  <input type="text" class="form-control" name="slug" id="slug" placeholder="Write your slug"value="{{ $post->slug}}">
                 </div>
 
               </div>
@@ -57,8 +60,12 @@
                 </div>
               </div><br>
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="status">
-                <label class="form-check-label" for="exampleCheck1">Publish</label>
+                <label>
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="status" 
+                @if ($post->status ==1) checked                
+                @endif
+                >
+               Publish</label>
               </div>
             </div>
 
@@ -96,6 +103,7 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                   <textarea id="summernote" name="body">
+                    {{ $post->body }}
                   {{-- Place <em>some</em> <u>text</u> <strong>here</strong> --}}
 
                 </textarea>

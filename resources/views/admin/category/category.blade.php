@@ -35,6 +35,8 @@
           </div>
           <div class=" card-footer text-center form-group col-lg-12">
             <button type="submit" class="btn btn-primary">Submit</button>
+            <a href='{{ route('category.index') }}' class="btn btn-info">Back</a>
+
           </div>
         </div>
 

@@ -12,9 +12,11 @@
 
 
 
-      <form role="form" action="{{ route('tag.store') }}" method="post" class="col-lg-12">
+      <form role="form" action="{{ route('tag.update',$tag->id) }}" method="post" class="col-lg-12">
         @csrf
         {{-- {{ csrf_field() }} --}}
+        {{ method_field('PUT') }}
+
 
         <div class="col-lg-6  " style="align-items: center">
 
@@ -25,12 +27,13 @@
             @include('inc.messages')
             <div class="form-group">
               <label for="name">Tag title</label>
-              <input type="text" class="form-control" name="name" id="name" placeholder="Write your Tag Title">
+              <input type="text" class="form-control" name="name" id="name" placeholder="Write your Tag Title"
+              value="{{ $tag->name }}">
             </div>
             
             <div class="form-group">
               <label for="slug">Tag Slug</label>
-              <input type="text" class="form-control" name="slug" id="slug" placeholder="Write your slug">
+              <input type="text" class="form-control" name="slug" id="slug" placeholder="Write your slug" value="{{ $tag->slug }}">
             </div>
 
           </div>
