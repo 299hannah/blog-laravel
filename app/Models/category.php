@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class category extends Model
 {
-    use HasFactory;
+    public function posts()
+    {
+        return $this->belongsToMany('App\Models\post','category_posts');
+    }
 }

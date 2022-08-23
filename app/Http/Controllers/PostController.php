@@ -1,15 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-// use \App\Models\post;
-use Illuminate\Http\Request;
+use \App\Models\post;
+// use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function post(){
+    public function post(post $post){
         // $post=post::get()->all();
         // dd($post);
-        return view('post');
+        // return $post;
+
+        return view('post',compact('post'));
 
     }
 }
