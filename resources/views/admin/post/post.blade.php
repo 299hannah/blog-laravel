@@ -27,7 +27,7 @@
       {{-- <div role="form" action="{{ route('post.store') }}" method="post"> --}}
 
 
-        <form role="form" action="{{ route('post.store') }}" method="post" class="col-lg-12">
+        <form role="form" action="{{ route('post.store') }}" method="post" class="col-lg-12"enctype="multipart/form-data">
           @csrf
           {{-- {{ csrf_field() }} --}}
           <div class="col-md-6">

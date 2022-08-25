@@ -1,5 +1,5 @@
 @extends('/app')
-@section('bg-img', asset('user/assets/img/post-bg.jpg'))
+@section('bg-img',Storage::disk('local')->url($post->image))
 @section('head')
 
 <link rel="stylesheet" href="{{ asset('user/css/prism.css') }}">

@@ -28,7 +28,8 @@
       {{-- <div role="form" action="{{ route('post.store') }}" method="post"> --}}
 
 
-        <form role="form" action="{{ route('post.update',$post->id) }}" method="post" class="col-lg-12">
+        <form role="form" action="{{ route('post.update',$post->id) }}" method="post" class="col-lg-12"
+          enctype="multipart/form-data">
           @csrf
           {{-- {{ csrf_field() }} --}}
           {{-- 'PUT or PATCH are same' --}}
