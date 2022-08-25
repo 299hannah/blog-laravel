@@ -56,9 +56,8 @@
         </div>
 
       </div>
-
-        <!-- /.card-body -->
-{{--         
+      <!-- /.card-body -->
+       {{--         
         <section class="content-header">
           <div class="container-fluid">
             <div class="row">

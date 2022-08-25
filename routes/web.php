@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','App\Http\Controllers\HomeController@blog');
 Route::get('post/{post}','App\Http\Controllers\PostController@post')->name('post');
+Route::get('post/tag/{tag}','App\Http\Controllers\HomeController@tag')->name('tag');
+Route::get('post/category/{category}','App\Http\Controllers\HomeController@category')->name('category');
 
 // Route::get('admin/home','Admin\HomeController@index')->name('admin/home');
 // Route::get('/adminportal',[AdminController::class,'adminportal'])->name('adminportal');
