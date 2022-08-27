@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/','App\Http\Controllers\HomeController@blog');
+Route::get('/','App\Http\Controllers\User\HomeController@index');
 Route::get('post/{post}','App\Http\Controllers\PostController@post')->name('post');
 Route::get('post/tag/{tag}','App\Http\Controllers\HomeController@tag')->name('tag');
 Route::get('post/category/{category}','App\Http\Controllers\HomeController@category')->name('category');
@@ -40,3 +40,15 @@ Route::group(['namespace'=> 'App\Http\Controllers\Admin'],function(){
 // Route::get('admin/category',function(){
 //     return view('admin.category.category');
 // });
+
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+
+// Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

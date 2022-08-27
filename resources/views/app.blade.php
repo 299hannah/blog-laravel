@@ -10,6 +10,7 @@
 
         <!-- Main Content-->
         @section('main-content')
+        
             @show
 
        <!-- Footer-->
