@@ -23,7 +23,7 @@
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
-
+@include('inc.messages')
       <form action="{{ route('admin.login') }}" method="post">
         {{ csrf_field() }}
         <div class="input-group mb-3">
