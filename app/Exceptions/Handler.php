@@ -5,6 +5,9 @@ namespace App\Exceptions;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
+
+
+
 class Handler extends ExceptionHandler
 {
     /**
@@ -44,7 +47,17 @@ class Handler extends ExceptionHandler
     public function register()
     {
         $this->reportable(function (Throwable $e) {
-            //
+            $guard = array_get($e->guards(), 0);
+
+            switch ($guard) {
+                case 'admin':
+                    return redirect()->guest(route('admin.login'));
+                    break;
+
+                default:
+                    return redirect()->guest(route('login'));
+                    break;
+            }
         });
     }
 }
