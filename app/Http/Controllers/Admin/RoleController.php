@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\Permission;
 use Illuminate\Http\Request;
 use App\Models\admin\role;
 use Illuminate\Broadcasting\Broadcasters\RedisBroadcaster;
@@ -17,7 +18,7 @@ class RoleController extends Controller
     public function index()
     {
         $roles=role::all();
-       return view('admin.role.show',compact('roles'));
+        return view('admin.role.show',compact('roles'));
     }
 
     /**
@@ -27,7 +28,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-       return view('admin.role.create');
+        $permissions = Permission::all();
+       return view('admin.role.create',compact('permissions'));
     }
 
     /**

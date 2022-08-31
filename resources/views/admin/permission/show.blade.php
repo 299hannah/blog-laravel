@@ -71,7 +71,7 @@
                 <tr>
                   <th>S.Name</th>
                   <th>Permission Name</th>
-             
+                  <th>Permission for</th>
                   <th>Edit</th>
                   <th>Delete</th>
 
@@ -82,6 +82,8 @@
                 <tr>
                   <td>{{ $loop->index + 1 }}</td>
                   <td>{{ $permission->name }}</td>
+                  <td>{{ $permission->for }}</td>
+
                   <td><a href=" {{ route('permission.edit',$permission->id) }}"><ion-icon name="create-outline"></ion-icon></a></td>
                  <form method="post" action="{{ route('permission.destroy',$permission->id) }}" id="delete-form-{{ $permission->id }}" style="display: none">
                 @csrf
@@ -109,7 +111,7 @@
                 <tr>
                   <th>S.Name</th>
                   <th>Permission Name</th>
-                 
+                  <th>Permission for</th>                 
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>
