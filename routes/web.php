@@ -22,11 +22,8 @@ Route::group(['namespace'=> 'App\Http\Controllers\Admin'],function(){
     Route::resource('admin/tag','TagController');
     Route::resource('admin/category','CategoryController');
     Route::resource('admin/user','UserController');
-
-
     Route::resource('admin/role','RoleController');
-
-
+    Route::resource('admin/permission','PermissionController');
     Route::get('admin-login','Auth\LoginController@showLoginForm')->name('admin.login');
     Route::post('admin-login','Auth\LoginController@login');
     
