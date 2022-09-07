@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\admin\admin;
 use App\Models\admin\role;
+use App\Models\user\User;
+
 
 
 
@@ -54,7 +56,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        $this->validate($request,[
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => 'required|numeric',
+
+        ]);
+        $request['password'] = bcrypt($request->password);
+        $user =admin::create($request->all());
+        $user->roles()->sync($request->role);
+
+        return redirect(route('user.index'));
+        // return $request->all();
     }
 
     /**
@@ -76,7 +90,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user=admin::find($id);
+        $roles = role::all();
+        return view('admin.user.edit',compact('user','roles'));
     }
 
     /**
@@ -88,7 +104,18 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => 'required|numeric',
+
+        ]);
+        $request->status? : $request['status']=0;
+        $user = admin::where('id',$id)->update($request->except('_token','_method','role'));
+        admin::find($id)->roles()->sync($request->role);
+        return redirect(route('user.index'))->with('message','user updated');
+
     }
 
     /**
@@ -99,6 +126,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        admin::where('id',$id)->delete();
+        return redirect()->back()->with('message','user deleted successfully');
     }
 }

@@ -30,12 +30,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Blank Page</h1>
+    @include('admin.layout.pagehead')
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Blank Page</li>
+            <li class="breadcrumb-item active">Hannah's Page</li>
           </ol>
         </div>
       </div>
@@ -49,6 +49,7 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title">Users</h3><br><br>
+   
         <a class="col-lg-offset-5 btn btn-outline-primary" href="{{ route('user.create') }}">Add New</a>
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -62,7 +63,7 @@
       <div class="card-body">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">DataTable with default features</h3>
+            @include('inc.messages')
           </div>
           <!-- /.card-header -->
           <div class="card-body">
@@ -71,7 +72,8 @@
                 <tr>
                   <th>S.Name</th>
                   <th>user Name</th>
-
+                  <th>Roles Assigned</th>
+                  <th>Status</th>
                   <th>Edit</th>
                   <th>Delete</th>
 
@@ -82,6 +84,15 @@
                 <tr>
                   <td>{{ $loop->index + 1 }}</td>
                   <td>{{ $user->name }}</td>
+                  <td>
+                    @foreach($user->roles as $role)
+                      {{ $role->name }}
+                    @endforeach
+                   </td>
+                   <td>
+                    
+                      {{ $user->status? 'active':'inactive' }}
+                   </td>
       
                   <td><a href=" {{ route('user.edit',$user->id) }}"><ion-icon name="create-outline"></ion-icon></a></td>
                  <form method="post" action="{{ route('user.destroy',$user->id) }}" id="delete-form-{{ $user->id }}" style="display: none">
@@ -110,7 +121,8 @@
                 <tr>
                   <th>S.Name</th>
                   <th>user Name</th>
-           
+                  <th>Roles Assigned</th>
+                  <th>Status</th>
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>

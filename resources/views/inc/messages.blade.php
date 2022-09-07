@@ -6,6 +6,6 @@
 
 @endif
 @if(session()->has('message'))
-<p class="alert alert-success">{{ session('message') }}</p>
+<p class="alert alert-info">{{ session('message') }}</p>
     
 @endif

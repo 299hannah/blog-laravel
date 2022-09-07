@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-
 Route::get('/','App\Http\Controllers\User\HomeController@index');
 Route::get('post/{post}','App\Http\Controllers\PostController@post')->name('post');
 Route::get('post/tag/{tag}','App\Http\Controllers\HomeController@tag')->name('tag');

@@ -45,9 +45,40 @@
             </a>
 
         </li>
-        <!-- Notifications Dropdown Menu -->
 
-        <li class="dropdown user-menu">
+{{-- 
+        glhghg;<h1>
+            </h1> --}}
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-user"></i>
+                    {{-- <span class="hidden-xs">{{ ucfirst(Auth::user()->name) }}</span> --}}
+                    <span class="hidden-xs">{{ Auth::user()->name }}</span>
+
+                </a>
+                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                    <a href="" class="media-body">
+                        <!-- Menu Footer-->
+                        <div class=" dropdown-item">
+                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                            <div class="dropdown-divider"></div>
+   
+                            <div class="btn btn-default pull-right">
+                                <a a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                               Logout
+                                </a>
+                                <form  id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                                {{-- </div> --}}
+                            </div>
+                        </div>
+                    </a>
+            </li>
+            <!-- Notifications Dropdown Menu -->
+
+        {{-- <li class="dropdown user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
             </a>
@@ -74,7 +105,7 @@
                     </div>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
     </ul>
 </nav>
@@ -83,7 +114,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ route('post.index') }}" class="brand-link">
+    <a href="{{ route('admin/home') }}" class="brand-link">
         {{-- <img src="dist/img/AdminLTELogo.png" alt="Blog" class="brand-image img-circle elevation-3" style="opacity: .8">
     --}}
         <span class="brand-text font-weight-light">My-Blog</span>

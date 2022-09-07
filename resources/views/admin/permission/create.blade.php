@@ -29,7 +29,7 @@
                                     <input type="text" class="form-control" name="name" id="name" placeholder="permission title">
                                 </div>
                                 <div class="form-group">
-                                  <label for="name">Permission for</label>
+                                  <label for="for">Permission for</label>
                                   <select name="for" id="for" class="form-control">
                                     <option selected disabled>select permission for</option>
                                     <option value="user">user</option>
